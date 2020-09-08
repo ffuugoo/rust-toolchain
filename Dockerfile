@@ -1,5 +1,10 @@
-FROM rust:latest
+FROM rust:slim
 
+# Download and install clippy and rustfmt
 RUN rustup component add clippy rustfmt
 
-RUN cargo install cargo-audit --features=vendored-openssl
+# Build and install cargo-audit
+RUN cargo install cargo-audit
+
+# Clear cargo cache
+RUN rm -rf /usr/local/cargo/registry
