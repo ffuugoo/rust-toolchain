@@ -2,7 +2,7 @@ FROM rust:slim
 
 # Download and install required native dependencies
 RUN apt update
-RUN apt install --no-install-recommends --yes pkgconf libssl-dev zlib-dev
+RUN apt install --no-install-recommends --yes pkgconf libssl-dev zlib1g-dev
 
 # Download and install clippy and rustfmt
 RUN rustup component add clippy rustfmt
